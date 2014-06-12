@@ -1,0 +1,6 @@
+# human readable name (no localization supported yet)
+name: Webapps
+# class to be mounted
+class: Webapps
+# root url where this plugin will be mounted
+url: /tab/apps/webapps

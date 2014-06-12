@@ -1,0 +1,12 @@
+a.click_change  = h(@webapp.name)
+= simple_remote_text     :id => "name_#{@webapp.id}",
+                         :input_id =>"name_webapp_#{@webapp.id}",
+                         :form_id => "name_form_webapp_#{@webapp.id}",
+                         :button_id => "new_name_webapp_#{@webapp.id}",
+                         :url => webapps_engine.update_name_webapp_path(:id => @webapp.id),
+                         :label => t("update"),
+                         :name => :name,
+                         :method => :put,
+                         :remote => true,
+                         :form_css_class => "edit_form form_hidden",
+                         :cancel_class => "cancel_link"
