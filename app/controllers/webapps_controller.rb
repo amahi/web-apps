@@ -1,8 +1,8 @@
 class WebappsController < ApplicationController
 	before_filter :admin_required
 
-	 
-	
+
+
 	def index
 		@webapps = Webapp.all
 	end
@@ -12,8 +12,8 @@ class WebappsController < ApplicationController
 		path = params[:webapp][:path].sub(/\/+$/, '')
 		path.gsub!(/\/+/, '/')
 		@wa = Webapp.create(:name => name, :path => path)
-		@webapps = Webapp.all 
-		# render :partial => 'content'	
+		@webapps = Webapp.all
+		# render :partial => 'content'
 	end
 
 	def delete
@@ -56,10 +56,9 @@ class WebappsController < ApplicationController
 		unless params[:name].blank?
 			name = params[:name]
 			if new_name_check(name)
-				wa.name = name
-				wa.save
-				wa.reload
-				status = 'ok'
+				if wa.update_attributes(:name=>name)
+					status = 'ok'
+				end
 			else
 				status = "notok"
 			end
@@ -89,7 +88,7 @@ class WebappsController < ApplicationController
 				status = "notok"
 			end
 		end
-		@webapp = wa		
+		@webapp = wa
 	end
 
 	def toggle_login_required
@@ -115,14 +114,14 @@ class WebappsController < ApplicationController
 		else
 			@waa = WebappAlias.create(:name => params[:name], :webapp_id => @webapp.id)
 		end
-		
+
 	end
 
 	def webapp_alias_destroy
-		@waa = WebappAlias.find(params[:id]) 
+		@waa = WebappAlias.find(params[:id])
 		id = @waa.webapp_id
 		@waa.destroy if @waa
-		@webapp = Webapp.find(id) 
+		@webapp = Webapp.find(id)
 		return unless @waa
 	end
 

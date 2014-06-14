@@ -1,10 +1,10 @@
 #edit entry
 $(document).ready ->
-	$(".click_change").click () ->
+	$(document).on "click", ".click_change", ->
 	  $(this).hide()
 	  $(this).parent().find(".edit_form").show()
 
-	$(".cancel_link").click () ->
+	$(document).on "click", ".cancel_link",->
 	  parent = $(this).parents('.edit_form')[0]
 	  $(parent).hide()
 	  superparent = $(parent).parents('td')[0]
@@ -34,5 +34,5 @@ $(document).on "ajax:success", ".edit_form", (event, results) ->
 			element = "#webapp_path_"+results.id
 			$(element).html(results.content)
 
-  		
-  		
+
+
