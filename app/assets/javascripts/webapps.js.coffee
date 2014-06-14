@@ -34,5 +34,14 @@ $(document).on "ajax:success", ".edit_form", (event, results) ->
 			element = "#webapp_path_"+results.id
 			$(element).html(results.content)
 
+$(document).on "ajax:beforeSend", ".edit_form", ->
+	form = $(this)
+	form.find(".spinner").show "fast"
+	form.find("button, input[type=submit]").hide()
+	form.find("a.cancel_link").hide()
 
-
+$(document).on "ajax:complete", ".edit_form", ->
+	form = $(this)
+	form.find(".spinner").hide()
+	form.find("button, input[type=submit]").show()
+	form.find("a.cancel_link").show()
