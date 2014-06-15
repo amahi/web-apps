@@ -3,14 +3,14 @@
 - uid = webapp.id.to_s
 - return if webapp.nil?
 div.user[id="whole_webapp_#{uid}"]
-  table.settings.stretchtoggle id="webapp_row_#{uid}" 
+  table.settings.stretchtoggle id="webapp_row_#{uid}"
     tr
       td.settings-col1.webapps-col1
         = link_to(webapp.name, '')
-      td.settings-col2.webapps-col2 id="webapp_url_#{uid}" 
-        a href=("http://#{webapp.name}") target="_" 
+      td.settings-col2.webapps-col2 id="webapp_url_#{uid}"
+        a href=("http://#{webapp.name}") target="_"
           | http://#{webapp.name}
-  .settings-stretcher id="webapp_info_#{uid}" style="display:none;" 
+  .settings-stretcher id="webapp_info_#{uid}" style="display:none;"
     .webapp-manage
       fieldset
         legend
@@ -33,12 +33,12 @@ div.user[id="whole_webapp_#{uid}"]
             tr
               td
                 = t 'name'
-                | :
+
               td &nbsp;
               td
                 - if webapp.deletable
                   span id="webapp_name_#{webapp.id}" = render :partial => 'name', :locals => { :@webapp => webapp }
-                              
+
                 - else
                   = h webapp.name
             tr
@@ -58,8 +58,8 @@ div.user[id="whole_webapp_#{uid}"]
               td &nbsp;
             tr
               td
-                = t 'root_path'
-                | :
+                = t('root_path').html_safe
+
               td &nbsp;
               td
                 - if webapp.deletable
@@ -74,7 +74,7 @@ div.user[id="whole_webapp_#{uid}"]
             tr
               td
                 = t 'logs'
-                | :
+
               td &nbsp;
               td
                 = h(webapp.path)
@@ -86,10 +86,10 @@ div.user[id="whole_webapp_#{uid}"]
             tr
               td
                 = t 'url'
-                | :
+
               td &nbsp;
               td
-                a href=("http://#{h webapp.name}") target="_" 
+                a href=("http://#{h webapp.name}") target="_"
                   | http://#{h webapp.name}
             tr
               td &nbsp;
@@ -98,9 +98,9 @@ div.user[id="whole_webapp_#{uid}"]
             tr
               td
                 = t 'access'
-                | :
+
               td &nbsp;
-              td valign="top" 
+              td valign="top"
                 = render :partial => 'login_required', :locals => { :webapp => webapp }
             tr
               td &nbsp;
@@ -109,7 +109,7 @@ div.user[id="whole_webapp_#{uid}"]
             tr
               td
                 = t 'created'
-                | :
+
               td &nbsp;
               td
                 = d = webapp.created_at.localtime; d.to_formatted_s(:short) + " (" + time_ago_in_words(d) + ")"

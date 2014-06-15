@@ -1,7 +1,7 @@
 - id = "login_required_#{webapp.id}"
-span id=id 
+span id=id
 	= tag "input", class: "webapp-login", type: "checkbox", checked: webapp.login_required,
 	              data: { remote: true, url: webapps_engine.toggle_login_required_webapp_path(id: webapp.id),
-	              confirm: "Sure you want to toggle the login requirement" }, :method=>"put"
+	              confirm: "Are you sure you want to require login?" }, :method=>"put"
 	= spinner
-  
+

@@ -1,5 +1,5 @@
 - uid = @webapp.id.to_s
-span id="webapp_aliases_#{uid}" 
+span id="webapp_aliases_#{uid}"
   span id="webapp_aliases_new_#{uid}"
   	a.click_change  New alias
     = simple_remote_text    :id => "#{@webapp.id}",
@@ -13,11 +13,11 @@ span id="webapp_aliases_#{uid}"
                              :remote => true,
                              :form_css_class => "edit_form form_hidden",
                              :cancel_class => "cancel_link"
-    .messages 
+    .messages
 
-  
-  - for a in @webapp.webapp_aliases.map do 
+
+  - for a in @webapp.webapp_aliases.map do
   	br/
-  	= link_to("[x]",webapps_engine.webapp_alias_destroy_webapp_path(:id => a.id), {:remote=>true, :method=>:delete, :class=>:edit_form})
+  	= link_to("[x]",webapps_engine.webapp_alias_destroy_webapp_path(:id => a.id), {:remote=>true, :method=>:delete, :class=>:edit_form, :id=>'alias-delete-icon'})
 
   	= link_to("http://#{a}", " http://#{a}", { :target => '_blank'})
