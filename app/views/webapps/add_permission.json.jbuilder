@@ -1,5 +1,5 @@
 self.formats = [:html]
-	json.status :ok
+	json.status @status
 	json.type :permission
 	json.webappid @webapp.id
 	json.userid @user.id

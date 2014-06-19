@@ -151,10 +151,12 @@ class WebappsController < ApplicationController
 		@webapp = Webapp.find(params[:webapp_id]) if params[:webapp_id]
 		if (@user && @webapp)
 			check = @user.valid_password?(password)
-			w = WebappAccess.find_or_create(@webapp.id)
-			w.addUser(@user,password)
+			if(check)
+				w = WebappAccess.find_or_create(@webapp.id)
+				w.addUser(@user,password)
+			end
 		end
-		status = check ? "ok" : "notok"
+		@status = check ? "ok" : "notok"
 		@users_allowed = WebappAccess.find_or_create(@webapp.id).getUsers
 	end
 
