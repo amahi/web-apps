@@ -1,0 +1,10 @@
+#alias-delete-icon{
+	background: url("img/delete.png");
+	height: 19px;
+	width: 19px;
+	display: inline-block;
+	text-indent: -9999px;
+}
+.settings-table{
+margin-top: 30px;
+}

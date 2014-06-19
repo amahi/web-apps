@@ -12,7 +12,10 @@ Webapps::Engine.routes.draw do
 			get 'toggle_login_required'
 			post 'webapp_alias_create'
 			delete 'webapp_alias_destroy'
+			post 'add_permission'
+			delete 'remove_permission'
 		end
 	end
+	get "permissions" => "webapps#permissions"
 	# examples of controllers built in this generator. delete at will
 end

@@ -1,0 +1,14 @@
+#webapps-table
+  .settings-table
+    - if @webapps.size > 0
+      table.settings
+        thead
+          tr
+            th.settings-col1.webapps-col1 scope="col" = t 'name'
+            th.settings-col2.webapps-col2 scope="col" = t 'url'
+        tbody
+      = render :partial => 'permission_webapp', :collection => @webapps, :as=> :webapp
+    - else
+      div align="center"
+          div align="left"
+            h2= t 'there_are_no_webapps'

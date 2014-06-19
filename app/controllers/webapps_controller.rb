@@ -125,6 +125,39 @@ class WebappsController < ApplicationController
 		return unless @waa
 	end
 
+	def permissions
+		@webapps = Webapp.where(:login_required=>1)
+		@users = User.all
+
+	end
+
+	def remove_permission
+		@user = User.find(params[:id]) if params[:id]
+		@webapp = Webapp.find(params[:webapp_id]) if params[:webapp_id]
+		check = false
+		if (@user && @webapp)
+			w = WebappAccess.find_or_create(@webapp.id)
+			w.removeUser(@user)
+			@users_allowed = WebappAccess.find_or_create(@webapp.id).getUsers
+			check = true
+		end
+		@status = check ? "ok" : "notok"
+		@users_allowed = WebappAccess.find_or_create(@webapp.id).getUsers
+	end
+
+	def add_permission
+		password = params[:password]
+		@user = User.find(params[:id]) if params[:id]
+		@webapp = Webapp.find(params[:webapp_id]) if params[:webapp_id]
+		if (@user && @webapp)
+			check = @user.valid_password?(password)
+			w = WebappAccess.find_or_create(@webapp.id)
+			w.addUser(@user,password)
+		end
+		status = check ? "ok" : "notok"
+		@users_allowed = WebappAccess.find_or_create(@webapp.id).getUsers
+	end
+
 private
 
 	def valid_name?(nm)
