@@ -4,11 +4,11 @@ td = @user.name
 td
 	span
 	- if checked
-		= link_to("[x]",webapps_engine.remove_permission_webapp_path(:id => @user.id,:webapp_id=>@webapp.id), {:remote=>true, :method=>:delete, :class=>:edit_form, :id=>'alias-delete-icon'})
+		= link_to("[x]",webapps_engine.remove_permission_webapp_path(:id => @user.id,:webapp_id=>@webapp.id), {:remote=>true, :method=>:delete, :class=>:edit_form})
 	- else
 	  	a.click_change  Add Permission
 	    form.edit_form.form_hidden action=webapps_engine.add_permission_webapp_path(:id => @user.id,:webapp_id=>@webapp.id) data-remote="true" method="post" style=("display: none;")
-			input id="text_webapp_#{@user.id}" name="password" type="password"
+			input  name="password" type="password"
 		    button.btn.btn-create.margin-for-message type="submit"
 		      span = t('add')
 		    a.cancel_link Cancel

@@ -1,6 +1,6 @@
 - uid = @webapp.id.to_s
-span id="webapp_aliases_#{uid}"
-  span id="webapp_aliases_new_#{uid}"
+div id="webapp_aliases_#{uid}"
+  div id="webapp_aliases_new_#{uid}"
   	a.click_change  New alias
     = simple_remote_text    :id => "#{@webapp.id}",
                              :input_id =>"text_webapp_#{@webapp.id}",
