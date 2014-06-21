@@ -1,4 +1,3 @@
-- @webapp = @webapp || Webapp.new
 = form_for :webapp, :url => webapps_engine.root_path,
     :remote => true, \
     :html => { \
@@ -13,12 +12,11 @@
     fieldset
       legend &nbsp; #{t 'create_a_new_webapp'} &nbsp;
       .create-inside
-        / = render :partial => 'shared/errors', :object => @webapp
         .control-group
-          .controls= f.text_field :name, :size => 16, :maxlength => 20, :placeholder => t('name')
+          .controls= f.text_field :name, :size => 16, :maxlength => 20, :value=>'', :placeholder => t('name')
 
         .control-group
-          .controls= f.text_field :path, :size => 16, :maxlength => 64, :placeholder => t('root_path')
+          .controls= f.text_field :path, :size => 16, :maxlength => 64, :value=>'', :placeholder => t('root_path').html_safe
           b="/html"
         .control-group.create-btn
           .controls
