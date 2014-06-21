@@ -156,7 +156,7 @@ class WebappsController < ApplicationController
 				w.addUser(@user,password)
 			end
 		end
-		@status = check ? "ok" : "notok"
+		@status = check ? "ok" : "Wrong password"
 		@users_allowed = WebappAccess.find_or_create(@webapp.id).getUsers
 	end
 

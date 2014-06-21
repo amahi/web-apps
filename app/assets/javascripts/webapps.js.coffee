@@ -36,6 +36,9 @@ $(document).on "ajax:success", ".edit_form", (event, results) ->
 		else if results.type is "permission"
 			element = "#permission_webapp"+results.webappid+"_user"+results.userid
 			$(element).html(results.content)
+	else if results.type is "permission"
+		element = "#permission_webapp"+results.webappid+"_user"+results.userid
+		$(element).find('.messages').html(results.status)
 
 $(document).on "ajax:beforeSend", ".edit_form", ->
 	form = $(this)

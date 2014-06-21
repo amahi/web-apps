@@ -18,6 +18,6 @@ div id="webapp_aliases_#{uid}"
 
   - for a in @webapp.webapp_aliases.map do
   	br/
-  	= link_to("[x]",webapps_engine.webapp_alias_destroy_webapp_path(:id => a.id), {:remote=>true, :method=>:delete, :class=>:edit_form, :id=>'alias-delete-icon'})
+  	= link_to("[x]",webapps_engine.webapp_alias_destroy_webapp_path(:id => a.id), {:remote=>true, :method=>:delete, :class=>'edit_form alias-delete-icon'})
 
   	= link_to("http://#{a}", " http://#{a}", { :target => '_blank'})

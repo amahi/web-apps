@@ -2,17 +2,18 @@
 
 td = @user.name
 td
-	span
+	div
 	- if checked
-		= link_to("[x]",webapps_engine.remove_permission_webapp_path(:id => @user.id,:webapp_id=>@webapp.id), {:remote=>true, :method=>:delete, :class=>:edit_form})
+		= link_to("[x]",webapps_engine.remove_permission_webapp_path(:id => @user.id,:webapp_id=>@webapp.id), {:remote=>true, :method=>:delete, :class=>'edit_form user_access_delete_icon'})
 	- else
-	  	a.click_change  Add Permission
+	  	a.click_change  Add access password
 	    form.edit_form.form_hidden action=webapps_engine.add_permission_webapp_path(:id => @user.id,:webapp_id=>@webapp.id) data-remote="true" method="post" style=("display: none;")
-			input  name="password" type="password"
+			input  name="password" type="password" placeholder="Enter User login password"
 		    button.btn.btn-create.margin-for-message type="submit"
 		      span = t('add')
 		    a.cancel_link Cancel
 		    span.spinner.theme-image style=("display: none")
+		    .messages
 
 
 
