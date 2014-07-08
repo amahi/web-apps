@@ -3,9 +3,9 @@
 - uid = webapp.id.to_s
 - return if webapp.nil?
 div.webapp[id="whole_webapp_#{uid}"]
-  table.settings.stretchtoggle id="webapp_row_#{uid}"
+  table.settings.table.stretchtoggle.table-condensed id="webapp_row_#{uid}"
     tr
-      td.settings-col1.webapps-col1
+      td.settings-col1.webapps-col1.settings-col1-pad
         = link_to(webapp.name, '')
       td.settings-col2.webapps-col2 id="webapp_url_#{uid}"
         a href=("http://#{webapp.name}") target="_blank"
@@ -27,9 +27,9 @@ div.webapp[id="whole_webapp_#{uid}"]
                       :method => :delete,
                       :id => "delete-webapp-#{webapp.id}",
                       :data => { :confirm => "Are you sure you want to delete "+ webapp.name},
-                      :class => 'btn-delete delete_webapp remote-btn'
+                      :class => 'btn btn-primary btn-sm btn-delete navbar-right delete_webapp remote-btn'
         .settings-fields
-          table
+          table.table.table-condensed
             tr
               td
                 = t 'name'
@@ -41,10 +41,7 @@ div.webapp[id="whole_webapp_#{uid}"]
 
                 - else
                   = h webapp.name
-            tr
-              td &nbsp;
-              td &nbsp;
-              td &nbsp;
+
             tr
               td
                 = t 'aliases'
@@ -52,10 +49,7 @@ div.webapp[id="whole_webapp_#{uid}"]
               td
                 = render :partial => 'webapp_aliases', :locals => { :@webapp => webapp }
               td
-            tr
-              td &nbsp;
-              td &nbsp;
-              td &nbsp;
+
             tr
               td
                 = t('root_path').html_safe
@@ -67,10 +61,7 @@ div.webapp[id="whole_webapp_#{uid}"]
                 - else
                   = h(webapp.path)
                   | /html/
-            tr
-              td &nbsp;
-              td &nbsp;
-              td &nbsp;
+
             tr
               td
                 = t 'logs'
@@ -79,10 +70,7 @@ div.webapp[id="whole_webapp_#{uid}"]
               td
                 = h(webapp.path)
                 | /logs/
-            tr
-              td &nbsp;
-              td &nbsp;
-              td &nbsp;
+
             tr
               td
                 = t 'url'
@@ -91,10 +79,7 @@ div.webapp[id="whole_webapp_#{uid}"]
               td
                 a href=("http://#{h webapp.name}") target="_"
                   | http://#{h webapp.name}
-            tr
-              td &nbsp;
-              td &nbsp;
-              td &nbsp;
+
             tr
               td
                 = t 'access'
@@ -102,10 +87,7 @@ div.webapp[id="whole_webapp_#{uid}"]
               td &nbsp;
               td valign="top"
                 = render :partial => 'login_required', :locals => { :webapp => webapp }
-            tr
-              td &nbsp;
-              td &nbsp;
-              td &nbsp;
+
             tr
               td
                 = t 'created'

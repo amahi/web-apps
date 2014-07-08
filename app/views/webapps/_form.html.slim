@@ -5,21 +5,21 @@
         :ok_icon_path => theme_image_path('ok.png'), \
         :error_icon_path => theme_image_path('stop.png') \
       }, \
-      :class => 'webapp create-form', \
+      :class => 'webapp create-form form-horizontal', \
       :id => 'webapp-new' \
     } do |f|
 
     fieldset
       legend &nbsp; #{t 'create_a_new_webapp'} &nbsp;
       .create-inside
-        .control-group
-          .controls= f.text_field :name, :size => 16, :maxlength => 20, :value=>'', :placeholder => t('name')
+        .control-group.form-group
+          .controls= f.text_field :name, :size => 16, :maxlength => 20, :value=>'', :placeholder => t('name'), :class=>'form-control'
 
-        .control-group
-          .controls= f.text_field :path, :size => 16, :maxlength => 64, :value=>'', :placeholder => t('root_path').html_safe
+        .control-group.form-group
+          .controls= f.text_field :path, :size => 16, :maxlength => 64, :value=>'', :placeholder => t('root_path').html_safe, :class=>'form-control'
           b="/html"
-        .control-group.create-btn
-          .controls
+        .control-group.form-group.create-btn
+          .controls.col-xs-offset-2.col-xs-10
             = spinner
-            = button_tag t('create'), :type => 'submit', :id => 'webapp_create_button', :class => 'btn btn-create'
-            = link_to t('cancel'), '#', :class => 'close-area cancel-link', :data => {:related => '#new-webapp-to-step1'}
+            = button_tag t('create'), :type => 'submit', :id => 'webapp_create_button', :class => 'btnn btn-create btn btn-info'
+            = link_to t('cancel'), '#', :class => 'close-area cancel-link btn btn-primary left-margin-10', :data => {:related => '#new-webapp-to-step1'}

@@ -3,9 +3,9 @@
 - uid = @webapp.id.to_s
 - @users_allowed = WebappAccess.find_or_create(@webapp.id).getUsers
 div.webapp[id="whole_webapp_#{uid}"]
-  table.settings.stretchtoggle id="webapp_row_#{uid}"
+  table.settings.table.stretchtoggle id="webapp_row_#{uid}"
     tr
-      td.settings-col1.webapps-col1
+      td.settings-col1.webapps-col1.settings-col1-pad
         = link_to(@webapp.name, '')
       td.settings-col2.webapps-col2 id="webapp_url_#{uid}"
         a href=("http://#{webapp.name}") target="_blank"
@@ -18,7 +18,7 @@ div.webapp[id="whole_webapp_#{uid}"]
           b= h(@webapp.name)
           | &nbsp;
         .settings-fields
-          table
+          table.table
             -for item in @users
               -@user = item
               tr[id="permission_webapp#{@webapp.id}_user#{@user.id}"]
