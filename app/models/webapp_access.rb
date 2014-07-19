@@ -28,7 +28,8 @@ belongs_to :webapps
 		user_ids = JSON.parse(self.access_to)
 		@users_allowed = []
 		user_ids.each do |user_id|
-			@users_allowed << User.find(user_id)
+			user = User.where(:id=>user_id).first
+			@users_allowed << user if user
 		end
 		@users_allowed
 	end
