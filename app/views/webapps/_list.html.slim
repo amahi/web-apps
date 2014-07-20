@@ -1,47 +1,46 @@
-#webapps-table
-  .settings-table
-    - if @webapps.size > 0
-      table.settings.table
-        thead
-          tr
-            th.settings-col1.webapps-col1 scope="col" = t 'name'
-            th.settings-col2.webapps-col2 scope="col" = t 'url'
-        tbody
-      = render :partial => 'webapp', :collection => @webapps
-    - else
-      div align="center"
-        div align="left"
-          h2= t 'there_are_no_webapps'
-          p Web apps are web-based applications hosted in your Amahi HDA.
-          p
-            | Example of web apps are
-            a href="http://www.wordpress.org" target="_blank"  Wordpress
-            |,
-            a href="http://www.mediawiki.org" target="_blank"  MediaWiki
-            |,
-            a href="http://gallery.menalto.com/" target="_blank"  Gallery
-            |,
-            a href="http://www.webmin.com/" target="_blank"  Webmin
-            | and
-            a href="http://phpsysinfo.sourceforge.net/" target="_blank"  PHPSysinfo
-          p There are a myriad of other apps that run under Linux.
-          p You can install web apps in this panel by:
-          p
-            ul
-              li
-                | Deciding what
-                b " name"
-                | you want to access the web app within your network (e.g. http://blog), and
-              li
-                | Selecting where is the
-                b " root directory"
-                | of the app you want to run
-          p The application code is expected to be present (before or after configuring the app) in the root directory.
-          p You can install it there as an archive from source (tar/zip), or as a package from existing applications in the base OS.
-          p Currently supported are applications based on LAMP (PHP), Python, static pages and others.
-          p
-            | We have a small
-            a href="http://wiki.amahi.org/index.php/Category:Apps" target="_blank"  gallery of apps
-            | that other Amahi
-            | developers and users have tried and tested.
+.settings-table#webapps-table
+  - if @webapps.size > 0
+    table.settings.table
+      thead
+        tr
+          th.settings-col1.webapps-col1 scope="col" = t 'name'
+          th.settings-col2.webapps-col2 scope="col" = t 'url'
+      tbody
+    = render :partial => 'webapp', :collection => @webapps
+  - else
+    div align="center"
+      div align="left"
+        h2= t 'there_are_no_webapps'
+        p Web apps are web-based applications hosted in your Amahi HDA.
+        p
+          | Example of web apps are
+          a href="http://www.wordpress.org" target="_blank"  Wordpress
+          |,
+          a href="http://www.mediawiki.org" target="_blank"  MediaWiki
+          |,
+          a href="http://gallery.menalto.com/" target="_blank"  Gallery
+          |,
+          a href="http://www.webmin.com/" target="_blank"  Webmin
+          | and
+          a href="http://phpsysinfo.sourceforge.net/" target="_blank"  PHPSysinfo
+        p There are a myriad of other apps that run under Linux.
+        p You can install web apps in this panel by:
+        p
+          ul
+            li
+              | Deciding what
+              b " name"
+              | you want to access the web app within your network (e.g. http://blog), and
+            li
+              | Selecting where is the
+              b " root directory"
+              | of the app you want to run
+        p The application code is expected to be present (before or after configuring the app) in the root directory.
+        p You can install it there as an archive from source (tar/zip), or as a package from existing applications in the base OS.
+        p Currently supported are applications based on LAMP (PHP), Python, static pages and others.
+        p
+          | We have a small
+          a href="http://wiki.amahi.org/index.php/Category:Apps" target="_blank"  gallery of apps
+          | that other Amahi
+          | developers and users have tried and tested.
 
