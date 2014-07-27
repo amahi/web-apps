@@ -51,3 +51,10 @@ $(document).on "ajax:complete", ".edit_form", ->
 	form.find(".spinner").hide()
 	form.find("button, input[type=submit]").show()
 	form.find("a.cancel_link").show()
+$(document).on 'keyup', '#webapp_name', ->
+  name = $(this).val()
+  unless name.length is 0
+  	path = "/var/hda/web-apps/"+name
+  	$('#webapp_path').val(path)
+  else
+  	$('#webapp_path').val('')

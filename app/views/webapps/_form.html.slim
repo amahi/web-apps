@@ -13,13 +13,14 @@
       legend &nbsp; #{t 'create_a_new_webapp'} &nbsp;
       .create-inside
         .control-group.form-group
-          .controls= f.text_field :name, :size => 16, :maxlength => 20, :value=>'', :placeholder => t('name'), :class=>'form-control'
+          .controls= f.text_field :name, :size => 16, :maxlength => 20, :value=>'', :placeholder => t('name'), :class=>'form-control', :id=>"webapp_name"
 
         .control-group.form-group
-          .controls= f.text_field :path, :size => 16, :maxlength => 64, :value=>'', :placeholder => t('root_path').html_safe, :class=>'form-control'
-          b="/html"
+          .controls
+          	=f.text_field :path, :size => 16, :maxlength => 64, :value=>'', :placeholder => t('root_path').html_safe, :class=>'form-control', :id=>"webapp_path"
+          	b="/html"
         .control-group.form-group.create-btn
           .controls.col-xs-offset-2.col-xs-10
             = spinner
-            = button_tag t('create'), :type => 'submit', :id => 'webapp_create_button', :class => 'btnn btn-create btn btn-info'
+            = button_tag t('create'), :type => 'submit', :id => 'webapp_create_button', :class => 'btnn btn btn-info'
             = link_to t('cancel'), '#', :class => 'close-area cancel-link btn btn-primary left-margin-10', :data => {:related => '#new-webapp-to-step1'}
