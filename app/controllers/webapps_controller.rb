@@ -1,8 +1,6 @@
 class WebappsController < ApplicationController
 	before_action :admin_required
 
-
-
 	def index
 		@webapps = Webapp.all
 	end

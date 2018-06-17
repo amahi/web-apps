@@ -20,9 +20,7 @@ require 'platform'
 
 class WebappAccess < ActiveRecord::Base
 
-attr_accessible :webapp_id, :access_to
-belongs_to :webapps
-
+	belongs_to :webapps
 
 	def getUsers
 		user_ids = JSON.parse(self.access_to)
