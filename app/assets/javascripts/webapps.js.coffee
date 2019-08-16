@@ -13,11 +13,13 @@ $(document).ready ->
 
 #new webapp
 $(document).on "ajax:success", "#webapp-new", (event, results) ->
+	console.log(results)
 	if results.status is "ok"
   		$('#webapps-table').parent().html(results.content)
 
 
 $(document).on "ajax:success", ".delete_webapp", (event, results) ->
+	console.log(results)
 	if results.status is "ok"
 		$('#webapps-table').parent().html(results.content)
 
