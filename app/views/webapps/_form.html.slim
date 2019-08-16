@@ -5,7 +5,7 @@
         :ok_icon_path => theme_image_path('ok.png'), \
         :error_icon_path => theme_image_path('stop.png') \
       }, \
-      :class => 'webapp create-form form-horizontal', \
+      :class => 'webapp create-form form-horizontal p-1 mt-2 bg-white d-inline-block', \
       :id => 'webapp-new' \
     } do |f|
 
@@ -23,4 +23,4 @@
           .controls.col-xs-offset-2.col-xs-10
             = spinner
             = button_tag t('create'), :type => 'submit', :id => 'webapp_create_button', :class => 'btnn btn btn-info'
-            = link_to t('cancel'), '#', :class => 'close-area cancel-link btn btn-primary left-margin-10', :data => {:related => '#new-webapp-to-step1'}
+            = link_to t('cancel'), '#', :class => 'close-area cancel-link cancel-btn-style btn-sm left-margin-10', :data => {:related => '#new-webapp-to-step1'}

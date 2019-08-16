@@ -5,3 +5,27 @@
 	display: inline-block;
 	text-indent: -9999px;
 }
+
+
+div.webapp table{
+    background: white;
+}
+
+div.webapp table:hover{
+    cursor: pointer;
+}
+
+.settings-stretcher{
+	background: white;
+    margin-bottom: 6px;
+    padding-top: 6px;
+    margin-top: 2px;
+}
+
+.webapp-table-row{
+	background: #fbfbfb !important;
+}
+
+.webapp-table-row:hover{
+    background: #dcdcdc !important;
+}
