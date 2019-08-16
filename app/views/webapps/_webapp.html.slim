@@ -2,8 +2,9 @@
 - webapp = webapp
 - uid = webapp.id.to_s
 - return if webapp.nil?
+
 div.webapp[id="whole_webapp_#{uid}"]
-  table.settings.table.stretchtoggle.table-condensed id="webapp_row_#{uid}"
+  table.webapp-table-row.settings.stretchtoggle.table-condensed id="webapp_row_#{uid}"
     tr
       td.settings-col1.webapps-col1.settings-col1-pad
         = link_to(webapp.name, '')
@@ -27,9 +28,9 @@ div.webapp[id="whole_webapp_#{uid}"]
                       :method => :delete,
                       :id => "delete-webapp-#{webapp.id}",
                       :data => { :confirm => "Are you sure you want to delete "+ webapp.name},
-                      :class => 'btn btn-primary btn-sm btn-delete navbar-right delete_webapp remote-btn'
+                      :class => 'btn-delete remote-btn navbar-right btn btn-sm d-inline-block'
         .settings-fields
-          table.table.table-condensed
+          table.table-condensed
             tr
               td
                 = t 'name'
